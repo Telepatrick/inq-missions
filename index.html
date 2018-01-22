@@ -89,40 +89,16 @@
       var scenario = diceRoller.roll('d1').getTotal();
       var scenario_text = '';
 
-      //Objective table
-
-      //Scenario A - Fight! Text
-      var fight = '<div><b>Fight!</b><br>';
-      fight += 'Twist on the theme of <b>Fight!</b> is Showdown. The two <br>';
-      fight += 'warbands start about <b>25 yards</b> apart and walk towards each<br>';
-      fight += 'other taking a <b>Nerve test</b> each turn untill someone`s nerve<br>';
-      fight += 'breaks and the fighting begins.<br><br></div>';
-      fight += '<div><i>The objective is <b>'+objectiveTable()+'</b> which<br>';
-      fight += '<b>Warband One</b> want to <b>'+actionTable()+'</b> whilst<br>';
-      fight += '<b>Warband Two</b> want to <b>'+actionTable()+'</b> it.<br></i></div>';
-
-      //Scenario B - Scavengers Text
-      var scavengers = '';
-
-      //Scenario C - Crossing Text
-      var crossing = '';
-
-      //Scenario D - Breakout Text
-      var breakout = '';
-
-      //Scenario E - Raid Text
-      var raid = '';
-
       switch (scenario) {
-        case (1): scenario_text = fight;
+        case (1): scenario_text = getFightScenarioText();
               break;
-        case (2): scenario_text = scavengers;
+        case (2): scenario_text = getScavengersScenarioText();
               break;
-        case (3): scenario_text = crossing;
+        case (3): scenario_text = getCrossingScenarioText();
               break;
-        case (4): scenario_text = breakout;
+        case (4): scenario_text = getBreakoutScenarioText();
               break;
-        case (5): scenario_text = raid;
+        case (5): scenario_text = getRaidScenarioText();
               break;
       }
 
@@ -246,6 +222,58 @@
       }
 
       return characterText;
+    }
+
+    /**
+     * Scenario A - Fight! Text
+     */
+    function getFightScenarioText() {
+      var text = '<div><b>Fight!</b><br>';
+      text += 'Twist on the theme of <b>Fight!</b> is Showdown. The two <br>';
+      text += 'warbands start about <b>25 yards</b> apart and walk towards each<br>';
+      text += 'other taking a <b>Nerve test</b> each turn untill someone`s nerve<br>';
+      text += 'breaks and the fighting begins.<br><br></div>';
+      text += '<div><i>The objective is <b>'+objectiveTable()+'</b> which<br>';
+      text += '<b>Warband One</b> want to <b>'+actionTable()+'</b> whilst<br>';
+      text += '<b>Warband Two</b> want to <b>'+actionTable()+'</b> it.<br></i></div>';
+
+      return text;
+    }
+
+    /**
+     * Scenario B - Scavengers Text
+     */
+    function getScavengersScenarioText() {
+      var text = '';
+
+      return text;
+    }
+
+    /**
+     * Scenario C - Crossing Text
+     */
+    function getCrossingScenarioText() {
+      var text = '';
+
+      return text;
+    }
+
+    /**
+     * Scenario D - Breakout Text
+     */
+    function getBreakoutScenarioText() {
+      var text = '';
+
+      return text;
+    }
+
+    /**
+     * Scenario E - Raid Text
+     */
+    function getRaidScenarioText() {
+      var text = '';
+
+      return text;
     }
 
   </script>
