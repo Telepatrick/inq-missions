@@ -2,7 +2,7 @@ var diceRoller  = new DiceRoller();
 
 function roll(){
     //Generate scenario
-    var scenario = diceRoller.roll('d1').getTotal();
+    var scenario = diceRoller.roll('d2').getTotal();
     var scenario_text = '';
 
     switch (scenario) {
@@ -150,7 +150,7 @@ function getFightScenarioText() {
     text += 'Twist on the theme of <b>Fight!</b> is Showdown. The two <br>';
     text += 'warbands start about <b>25 yards</b> apart and walk towards each<br>';
     text += 'other taking a <b>Nerve test</b> each turn untill someone`s nerve<br>';
-    text += 'breaks and the fighting begins.<br><br></div>';
+    text += 'breaks and the fighting begins.</div><br>';
     text += '<div><i>The objective is <b>'+objectiveTable()+'</b> which<br>';
     text += '<b>Warband One</b> want to <b>'+actionTable()+'</b> whilst<br>';
     text += '<b>Warband Two</b> want to <b>'+actionTable()+'</b> it.<br></i></div>';
@@ -161,8 +161,38 @@ function getFightScenarioText() {
 /**
  * Scenario B - Scavengers Text
  */
+
+/*
+B - Scavangers
+Warbands start on opposite sides of the board and only
+have a rough idea of where their target is and what the area
+is like. The main diffrence between the Scavangers and
+the Raid scenatio is that in this scenario neither side starts
+off in possession of the target item(s).
+
+    The most common variation on this theme is to have
+multiple items of varying value or usefulness that the
+warbands fight over.
+
+    Warband one is trying to (d6 on Action table)
+(d19 on Objective table). Whilst Warband Two is
+trying to (d6 on Action table) (d19 on Objective table).
+Both are interested in (d19 on Objective table).
+*/
 function getScavengersScenarioText() {
-    var text = '';
+    var text = '<div><b>Scavengers</b><br>';
+    text += 'Warbands start on opposite sides of the board and only<br>';
+    text += 'have a rough idea of where their target is and what the area<br>';
+    text += 'is like. The main difference between the <b>Scavangers</b> and<br>';
+    text += 'the <b>Raid</b> scenario is that in this scenario neither side starts<br>';
+    text += 'off in possession of the target item(s).</div><br>';
+    text += '<div><i>The most common variation on this theme is to have<br>';
+    text += 'multiple items of varying value or usefulness that the<br>';
+    text += 'warbands fight over.</i></div><br>';
+    text += '<div><i><b>Warband One</b> is trying to <b>'+actionTable()+'</b><br>';
+    text += '<b>'+objectiveTable()+'</b>. Whilst <b>Warband Two</b> is<br>';
+    text += 'trying to <b>'+actionTable()+' '+objectiveTable()+'</b>.<br>';
+    text += 'Both are interested in <b>'+objectiveTable()+'</b>.</i></div>';
 
     return text;
 }
