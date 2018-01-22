@@ -1,8 +1,6 @@
 var diceRoller  = new DiceRoller();
 
 function roll(){
-    //var value = document.getElementById('input').value;
-
     //Generate scenario
     var scenario = diceRoller.roll('d1').getTotal();
     var scenario_text = '';
@@ -20,6 +18,8 @@ function roll(){
             break;
     }
 
+    //Save generated scenario text into pdf file
+    //html2pdf(scenario_text);
     document.getElementById('output').outerHTML = scenario_text;
 
     // stop event propagation
