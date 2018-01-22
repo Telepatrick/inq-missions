@@ -1,0 +1,108 @@
+1) Loc
+
+2) Scen
+A - Fight!
+Twist on the theme of Fight! is Showdown. The two
+warbands start about 25 yards apart and walk towards each
+other taking a Nerve test each turn untill someone`s nerve
+breaks and the fighting begins.
+
+The objective is (d19 on Objective table) which
+Warband One want to (d6 on Action table) whilst
+Warband Two want to (d6 on Action table) it.
+
+B - Scavangers
+Warbands start on opposite sides of the board and only
+have a rough idea of where their target is and what the area
+is like. The main diffrence between the Scavangers and
+the Raid scenatio is that in this scenario neither side starts
+off in possession of the target item(s).
+
+The most common variation on this theme is to have
+multiple items of varying value or usefulness that the
+warbands fight over.
+
+Warband one is trying to (d6 on Action table)
+(d19 on Objective table). Whilst Warband Two is
+trying to (d6 on Action table) (d19 on Objective table).
+Both are interested in (d19 on Objective table).
+
+C - Crossing
+One warband is trying to cross an area
+guarded by another warband.
+
+Randomly determine which is attacking and which is
+the defending warband.
+
+The defending warband has set up camp near
+(d19 on Objective table). The attacking warband is attempting to
+cross the area in order to get to (d19 on Objective table).
+
+D - Breakout
+One warband starts in the center of the board,
+surrounded by their opponents (plus any NPC forces).
+The surrounded warband then has to escape via
+designated board egde.
+
+Randomly determine which is the attacking
+and which is the defending warband.
+
+E - Raid
+One warband is in possesion of the target and must defend
+it at all costs. Often only half the defending warband
+start on the board; the rest arriving only after alarm has
+been raised.
+
+The alarm could be raised if one of the guards is attacked and
+survives that turn, if they spot an opponent acting suspiciously
+or if there is a lot of gunfire. The attacking warband usually has
+to take/destroy/use the target then leave by designated board edge.
+
+Randomly determine which is the attacking
+and which is the defending warband.
+
+The defending warband is in control of (d19 on Objective table).
+(d9 on Chacarters Present table) is/are on guard. The attacking
+warband is trying to (d6 on Action table) the target.
+
+
+
+Objective table:
+1 - a Member of the other warband
+2 - the Leader of the other warband
+3 - a Member of your own warband
+4 - an NPC
+5 - a Book
+6 - a Manp
+7 - an STC Print-out
+8 - an Alien Artefact
+9 - a Daemonic Artefact
+10 - a Vheicle
+11 - a Piece of Archeotech
+12 - an Expiremental Weapon
+13 - a Weapons Cache
+14 - a Fuel Dump
+15 - the Door
+16 - the Power Supply
+17 - a Control Panel
+18 - a Communications System
+19 - a Computer Console
+
+Action Table:
+1 - Use
+2 - Capture
+3 - Guard
+4 - Find
+5 - Fix
+6 - Destroy
+
+Characters Present table:
+1 - All the Warband
+2 - All the Henchmen
+3 - D3 Henchmen
+4 - Leader and D2 Henchmen
+5 - Leader and D3 Henchmen
+6 - Leader
+7 - Henchman 1
+8 - Henchman 2
+9 - Henchman 3

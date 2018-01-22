@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dice Roller demo</title>
+
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+
+    body{
+      color: #222;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      background-color: #fcfcfc;
+    }
+
+    code{
+      padding: 0 .25em;
+      color: #444;
+      font-size: .75em;
+      background: #eee;
+    }
+    
+    input, textarea, button{
+      margin-bottom: 1em;
+    }
+
+    #footer{
+      font-size: .75em;
+    }
+
+
+    #output{
+      padding: .5em;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      font-family: monospace;
+      font-size: 1em;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>RPG Dice Roller</h1>
+  </header>
+
+  <main>
+    <form action="" onsubmit="return roll();">
+      <label for="input">Notation</label>
+      <input type="text" placeholder="eg. 1d6+2d20" autofocus id="input">
+      <button type="submit">Roll</button>
+    </form>
+
+    <div>
+      <label for="output">Output</label>
+
+      <div>
+        <textarea rows="1" id="output" readonly placeholder="No dice rolled"></textarea>
+      </div>
+
+      <button onclick="clearLog()">Clear log</button>
+    </div>
+
+    <hr>
+  </main>
+
+  <hr>
+
+  <footer id="footer">
+    Copyright &copy; 2015 - 2017 GreenImp ltd. (MIT) -
+    <a href="https://github.com/GreenImp/rpg-dice-roller" target="_blank">GitHub</a>
+  </footer>
+
+  <script src="dice-roller.js"></script>
+  <script>
+    var diceRoller  = new DiceRoller();
+
+    function roll(){
+      //var value = document.getElementById('input').value;
+
+      //Generate scenario
+      var scenario = diceRoller.roll('d1').getTotal();
+      var scenario_text = '';
+
+      //Objective table
+
+      //Scenario A - Fight! Text
+      var fight = '<div><b>Fight!</b><br>';
+      fight += 'Twist on the theme of <b>Fight!</b> is Showdown. The two <br>';
+      fight += 'warbands start about <b>25 yards</b> apart and walk towards each<br>';
+      fight += 'other taking a <b>Nerve test</b> each turn untill someone`s nerve<br>';
+      fight += 'breaks and the fighting begins.<br><br></div>';
+      fight += '<div><i>The objective is <b>'+objectiveTable()+'</b> which<br>';
+      fight += '<b>Warband One</b> want to <b>'+actionTable()+'</b> whilst<br>';
+      fight += '<b>Warband Two</b> want to <b>'+actionTable()+'</b> it.<br></i></div>';
+
+      //Scenario B - Scavengers Text
+      var scavengers = '';
+
+      //Scenario C - Crossing Text
+      var crossing = '';
+
+      //Scenario D - Breakout Text
+      var breakout = '';
+
+      //Scenario E - Raid Text
+      var raid = '';
+
+      switch (scenario) {
+        case (1): scenario_text = fight;
+              break;
+        case (2): scenario_text = scavengers;
+              break;
+        case (3): scenario_text = crossing;
+              break;
+        case (4): scenario_text = breakout;
+              break;
+        case (5): scenario_text = raid;
+              break;
+      }
+
+      document.getElementById('output').outerHTML = scenario_text;
+
+      // stop event propagation
+      return false;
+    }
+
+    function clearLog(){
+      diceRoller.clearLog();
+
+      document.getElementById('output').value = diceRoller.getNotation();
+
+      // stop event propagation
+      return false;
+    }
+
+    /**
+     * Objective table
+     */
+    function objectiveTable() {
+      var objectiveNumber = diceRoller.roll('d19').getTotal();
+      var objectiveText = '';
+
+      switch (objectiveNumber) {
+        case (1): objectiveText = 'a Member of the other warband';
+              break;
+        case (2): objectiveText = 'the Leader of the other warband';
+              break;
+        case (3): objectiveText = 'a Member of your own warband';
+              break;
+        case (4): objectiveText = 'an NPC';
+              break;
+        case (5): objectiveText = 'a Book';
+              break;
+        case (6): objectiveText = 'a Map';
+              break;
+        case (7): objectiveText = 'an STC Print-out';
+              break;
+        case (8): objectiveText = 'an Alien Artefact';
+              break;
+        case (9): objectiveText = 'a Daemonic Artefact';
+              break;
+        case (10): objectiveText = 'a Vehicle';
+              break;
+        case (11): objectiveText = 'a Piece of Archeotech';
+              break;
+        case (12): objectiveText = 'an Experimental Weapon';
+              break;
+        case (13): objectiveText = 'a Weapons Cache';
+              break;
+        case (14): objectiveText = 'a Fuel Dump';
+              break;
+        case (15): objectiveText = 'the Door';
+              break;
+        case (16): objectiveText = 'the Power Supply';
+              break;
+        case (17): objectiveText = 'a Control Panel';
+              break;
+        case (18): objectiveText = 'a Communications System';
+              break;
+        case (19): objectiveText = 'a Computer Console';
+              break;
+      }
+
+      return objectiveText;
+    }
+
+    /**
+     * Action table
+     */
+    function actionTable() {
+      var actionNumber = diceRoller.roll('d6').getTotal();
+      var actionText = '';
+
+      switch (actionNumber) {
+        case (1): actionText = 'use';
+          break;
+        case (2): actionText = 'capture';
+          break;
+        case (3): actionText = 'guard';
+          break;
+        case (4): actionText = 'find';
+          break;
+        case (5): actionText = 'fix';
+          break;
+        case (6): actionText = 'destroy';
+          break;
+      }
+
+      return actionText;
+    }
+
+    /**
+     * Characters Present table
+     */
+    function charactersPresent() {
+      var characterNumber = diceRoller.roll('d9').getTotal();
+      var characterText = '';
+
+      switch (characterNumber) {
+        case (1): characterText = 'All the Warband';
+          break;
+        case (2): characterText = 'All the Henchmen';
+          break;
+        case (3): characterText = 'D3 Henchmen';
+          break;
+        case (4): characterText = 'Leader and D2 Henchmen';
+          break;
+        case (5): characterText = 'Leader and D3 Henchmen';
+          break;
+        case (6): characterText = 'Leader';
+          break;
+        case (7): characterText = 'Henchman 1';
+          break;
+        case (8): characterText = 'Henchman 2';
+          break;
+        case (9): characterText = 'Henchman 3';
+          break;
+      }
+
+      return characterText;
+    }
+
+  </script>
+</body>
+</html>
