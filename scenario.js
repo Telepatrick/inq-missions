@@ -2,7 +2,7 @@ var diceRoller  = new DiceRoller();
 
 function roll(){
     //Generate scenario
-    var scenario = diceRoller.roll('d2').getTotal();
+    var scenario = diceRoller.roll('d3').getTotal();
     var scenario_text = '';
 
     switch (scenario) {
@@ -146,8 +146,8 @@ function charactersPresent() {
  * Scenario A - Fight! Text
  */
 function getFightScenarioText() {
-    var text = '<div><b>Fight!</b><br>';
-    text += 'Twist on the theme of <b>Fight!</b> is Showdown. The two <br>';
+    var text = '<div><b>Fight!</b></div>';
+    text += '<div>Twist on the theme of <b>Fight!</b> is Showdown. The two <br>';
     text += 'warbands start about <b>25 yards</b> apart and walk towards each<br>';
     text += 'other taking a <b>Nerve test</b> each turn untill someone`s nerve<br>';
     text += 'breaks and the fighting begins.</div><br>';
@@ -161,27 +161,9 @@ function getFightScenarioText() {
 /**
  * Scenario B - Scavengers Text
  */
-
-/*
-B - Scavangers
-Warbands start on opposite sides of the board and only
-have a rough idea of where their target is and what the area
-is like. The main diffrence between the Scavangers and
-the Raid scenatio is that in this scenario neither side starts
-off in possession of the target item(s).
-
-    The most common variation on this theme is to have
-multiple items of varying value or usefulness that the
-warbands fight over.
-
-    Warband one is trying to (d6 on Action table)
-(d19 on Objective table). Whilst Warband Two is
-trying to (d6 on Action table) (d19 on Objective table).
-Both are interested in (d19 on Objective table).
-*/
 function getScavengersScenarioText() {
-    var text = '<div><b>Scavengers</b><br>';
-    text += 'Warbands start on opposite sides of the board and only<br>';
+    var text = '<div><b>Scavengers</b></div>';
+    text += '<div>Warbands start on opposite sides of the board and only<br>';
     text += 'have a rough idea of where their target is and what the area<br>';
     text += 'is like. The main difference between the <b>Scavangers</b> and<br>';
     text += 'the <b>Raid</b> scenario is that in this scenario neither side starts<br>';
@@ -201,8 +183,14 @@ function getScavengersScenarioText() {
  * Scenario C - Crossing Text
  */
 function getCrossingScenarioText() {
-    var text = '';
-
+    var text = '<div><b>Crossing</b></div>';
+    text += '<div>One warband is trying to cross an area<br>';
+    text += 'guarded by another warband.</div><br>';
+    text += '<div><i>Randomly determine which is attacking and which is<br>';
+    text += 'the defending warband.</i></div><br>';
+    text += '<div><i>The <b>defending warband</b> has set up camp near<br>';
+    text += '<b>'+objectiveTable()+'</b>. The <b>attacking warband</b> is attempting to<br>';
+    text += 'cross the area in order to get to <b>'+objectiveTable()+'</b>.</i></div>';
     return text;
 }
 
