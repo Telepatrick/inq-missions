@@ -2,7 +2,7 @@ var diceRoller  = new DiceRoller();
 
 function roll(){
     //Generate scenario
-    var scenario = diceRoller.roll('d3').getTotal();
+    var scenario = diceRoller.roll('d5').getTotal();
     var scenario_text = '';
 
     switch (scenario) {
@@ -20,7 +20,7 @@ function roll(){
 
     //Save generated scenario text into pdf file
     //html2pdf(scenario_text);
-    document.getElementById('output').outerHTML = scenario_text;
+    document.getElementById('output').innerHTML = scenario_text;
 
     // stop event propagation
     return false;
@@ -198,7 +198,13 @@ function getCrossingScenarioText() {
  * Scenario D - Breakout Text
  */
 function getBreakoutScenarioText() {
-    var text = '';
+    var text = '<div><b>Breakout</b></div>';
+    text += '<div>One warband starts in the center of the board,<br>';
+    text += 'surrounded by their opponents (plus any NPC forces).<br>';
+    text += 'The surrounded warband then has to escape via<br>';
+    text += 'designated board egde.</div><br>';
+    text += '<div><i>Randomly determine which is the <b>attacking</b><br>';
+    text += 'and which is the <b>defending</b> warband.</i></div>';
 
     return text;
 }
@@ -207,7 +213,20 @@ function getBreakoutScenarioText() {
  * Scenario E - Raid Text
  */
 function getRaidScenarioText() {
-    var text = '';
+    var text = '<div><b>Raid</b></div>';
+    text += '<div>One warband is in possesion of the target and must defend<br>';
+    text += 'it at all costs. Often only half the <b>defending warband</b><br>';
+    text += 'start on the board; the rest arriving only after alarm has<br>';
+    text += 'been raised.</div><br>';
+    text += 'The alarm could be raised if one of the guards is attacked and<br>';
+    text += 'survives that turn, if they spot an opponent acting suspiciously<br>';
+    text += 'or if there is a lot of gunfire. The attacking warband usually has<br>';
+    text += 'to take/destroy/use the target then leave by designated board edge.</div><br>';
+    text += '<div><i>Randomly determine which is the <b>attacking</b><br>';
+    text += 'and which is the <b>defending</b> warband.</i></div><br>';
+    text += 'The <b>defending</b> warband is in control of <b>'+objectiveTable()+'</b>.<br>';
+    text += '<b>'+charactersPresent()+'</b> is/are on guard. The <b>attacking</b><br>';
+    text += 'warband is trying to <b>'+actionTable()+'</b> the target.</i></div>';
 
     return text;
 }

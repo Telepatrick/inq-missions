@@ -25,22 +25,16 @@
       font-size: .75em;
       background: #eee;
     }
-    
+
     input, textarea, button{
       margin-bottom: 1em;
     }
-
-    #footer{
-      font-size: .75em;
-    }
-
 
     #output{
       padding: .5em;
       width: 100%;
       max-width: 100%;
       min-width: 100%;
-      font-family: monospace;
       font-size: 1em;
     }
   </style>
@@ -53,31 +47,16 @@
   </header>
 
   <main>
-    <form action="" onsubmit="return roll();">
-      <label for="input">Notation</label>
-      <input type="text" placeholder="eg. 1d6+2d20" autofocus id="input">
-      <button type="submit">Roll</button>
+    <form action="">
+      <label>Notation</label>
+      <button type="button" onclick="roll()">Roll</button>
     </form>
 
-    <div>
-      <label for="output">Output</label>
-
-      <div>
-        <textarea rows="1" id="output" readonly placeholder="No dice rolled"></textarea>
-      </div>
-
-      <button onclick="clearLog()">Clear log</button>
+    <div id="output">
     </div>
-
-    <hr>
   </main>
 
   <hr>
-
-  <footer id="footer">
-    Copyright &copy; 2015 - 2017 GreenImp ltd. (MIT) -
-    <a href="https://github.com/GreenImp/rpg-dice-roller" target="_blank">GitHub</a>
-  </footer>
   <script src="html2pdf.bundle.min.js"></script>
   <script src="dice-roller.js"></script>
   <script src="scenario.js"></script>
