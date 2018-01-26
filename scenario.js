@@ -22,8 +22,25 @@ function roll(){
     //html2pdf(scenario_text);
     document.getElementById('output').innerHTML = scenario_text;
 
+    document.getElementById('print-pdf-button').disabled = false;
+
     // stop event propagation
     return false;
+}
+
+function printToPdf() {
+    var scenario_text = '';
+    scenario_text = document.getElementById('output').innerHTML;
+
+    if(scenario_text.length != 0) {
+        html2pdf(scenario_text, {
+            margin:       1,
+            filename:     'myfile.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { dpi: 192, letterRendering: true },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        });
+    }
 }
 
 function clearLog(){
