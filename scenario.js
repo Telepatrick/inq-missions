@@ -33,9 +33,29 @@ function printToPdf() {
     scenario_text = document.getElementById('output').innerHTML;
 
     if(scenario_text.length != 0) {
+        var scenario_name = document.getElementById('scenario_name').innerHTML;
+
+        switch (scenario_name) {
+            case 'Fight!':
+                var filename = scenario_name + ' - ' + document.getElementById('objective_1').innerHTML + '.pdf';
+                break;
+            case 'Scavengers':
+                var filename = scenario_name+' - '+document.getElementById('objective_1').innerHTML+', '+document.getElementById('objective_2').innerHTML+', '+document.getElementById('objective_3').innerHTML+'.pdf';
+                break;
+            case 'Crossing':
+                var filename = scenario_name + ' - ' + document.getElementById('objective_1').innerHTML + ', '+ document.getElementById('objective_2').innerHTML +'.pdf';
+                break;
+            case 'Breakout':
+                var filename = scenario_name+'.pdf';
+                break;
+            case 'Raid':
+                var filename = scenario_name + ' - ' + document.getElementById('objective_1').innerHTML + '.pdf';
+        }
+
+
         html2pdf(scenario_text, {
             margin:       1,
-            filename:     'myfile.pdf',
+            filename:     filename,
             image:        { type: 'jpeg', quality: 0.98 },
             html2canvas:  { dpi: 192, letterRendering: true },
             jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
@@ -163,12 +183,12 @@ function charactersPresent() {
  * Scenario A - Fight! Text
  */
 function getFightScenarioText() {
-    var text = '<div><b>Fight!</b></div>';
+    var text = '<div><b id="scenario_name">Fight!</b></div>';
     text += '<div>Twist on the theme of <b>Fight!</b> is Showdown. The two <br>';
     text += 'warbands start about <b>25 yards</b> apart and walk towards each<br>';
     text += 'other taking a <b>Nerve test</b> each turn untill someone`s nerve<br>';
     text += 'breaks and the fighting begins.</div><br>';
-    text += '<div><i>The objective is <b>'+objectiveTable()+'</b> which<br>';
+    text += '<div><i>The objective is <b id="objective_1">'+objectiveTable()+'</b> which<br>';
     text += '<b>Warband One</b> want to <b>'+actionTable()+'</b> whilst<br>';
     text += '<b>Warband Two</b> want to <b>'+actionTable()+'</b> it.<br></i></div>';
 
@@ -179,7 +199,7 @@ function getFightScenarioText() {
  * Scenario B - Scavengers Text
  */
 function getScavengersScenarioText() {
-    var text = '<div><b>Scavengers</b></div>';
+    var text = '<div><b id="scenario_name">Scavengers</b></div>';
     text += '<div>Warbands start on opposite sides of the board and only<br>';
     text += 'have a rough idea of where their target is and what the area<br>';
     text += 'is like. The main difference between the <b>Scavangers</b> and<br>';
@@ -189,9 +209,9 @@ function getScavengersScenarioText() {
     text += 'multiple items of varying value or usefulness that the<br>';
     text += 'warbands fight over.</i></div><br>';
     text += '<div><i><b>Warband One</b> is trying to <b>'+actionTable()+'</b><br>';
-    text += '<b>'+objectiveTable()+'</b>. Whilst <b>Warband Two</b> is<br>';
-    text += 'trying to <b>'+actionTable()+' '+objectiveTable()+'</b>.<br>';
-    text += 'Both are interested in <b>'+objectiveTable()+'</b>.</i></div>';
+    text += '<b id="objective_1">'+objectiveTable()+'</b>. Whilst <b>Warband Two</b> is<br>';
+    text += 'trying to <b id="objective_2">'+actionTable()+' '+objectiveTable()+'</b>.<br>';
+    text += 'Both are interested in <b id="objective_3">'+objectiveTable()+'</b>.</i></div>';
 
     return text;
 }
@@ -200,14 +220,14 @@ function getScavengersScenarioText() {
  * Scenario C - Crossing Text
  */
 function getCrossingScenarioText() {
-    var text = '<div><b>Crossing</b></div>';
+    var text = '<div><b id="scenario_name">Crossing</b></div>';
     text += '<div>One warband is trying to cross an area<br>';
     text += 'guarded by another warband.</div><br>';
     text += '<div><i>Randomly determine which is attacking and which is<br>';
     text += 'the defending warband.</i></div><br>';
     text += '<div><i>The <b>defending warband</b> has set up camp near<br>';
-    text += '<b>'+objectiveTable()+'</b>. The <b>attacking warband</b> is attempting to<br>';
-    text += 'cross the area in order to get to <b>'+objectiveTable()+'</b>.</i></div>';
+    text += '<b id="objective_1">'+objectiveTable()+'</b>. The <b>attacking warband</b> is attempting to<br>';
+    text += 'cross the area in order to get to <b id="objective_2">'+objectiveTable()+'</b>.</i></div>';
     return text;
 }
 
@@ -215,7 +235,7 @@ function getCrossingScenarioText() {
  * Scenario D - Breakout Text
  */
 function getBreakoutScenarioText() {
-    var text = '<div><b>Breakout</b></div>';
+    var text = '<div><b id="scenario_name">Breakout</b></div>';
     text += '<div>One warband starts in the center of the board,<br>';
     text += 'surrounded by their opponents (plus any NPC forces).<br>';
     text += 'The surrounded warband then has to escape via<br>';
@@ -230,7 +250,7 @@ function getBreakoutScenarioText() {
  * Scenario E - Raid Text
  */
 function getRaidScenarioText() {
-    var text = '<div><b>Raid</b></div>';
+    var text = '<div><b id="scenario_name">Raid</b></div>';
     text += '<div>One warband is in possesion of the target and must defend<br>';
     text += 'it at all costs. Often only half the <b>defending warband</b><br>';
     text += 'start on the board; the rest arriving only after alarm has<br>';
@@ -241,7 +261,7 @@ function getRaidScenarioText() {
     text += 'to take/destroy/use the target then leave by designated board edge.</div><br>';
     text += '<div><i>Randomly determine which is the <b>attacking</b><br>';
     text += 'and which is the <b>defending</b> warband.</i></div><br>';
-    text += 'The <b>defending</b> warband is in control of <b>'+objectiveTable()+'</b>.<br>';
+    text += 'The <b>defending</b> warband is in control of <b id="objective_1">'+objectiveTable()+'</b>.<br>';
     text += '<b>'+charactersPresent()+'</b> is/are on guard. The <b>attacking</b><br>';
     text += 'warband is trying to <b>'+actionTable()+'</b> the target.</i></div>';
 
